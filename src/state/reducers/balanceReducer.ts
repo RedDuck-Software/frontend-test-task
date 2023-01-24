@@ -3,25 +3,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchBalance } from '../actions/balanceActions';
 
 interface IInitialState {
-  balanceNative: string;
+  price: string;
 }
 
 const initialState: IInitialState = {
-  balanceNative: '0',
+  price: '0',
 };
 
 export const tokenSlice = createSlice({
-  name: 'balance',
+  name: 'price',
   initialState,
   reducers: {
-    resetCoin: () => initialState,
+    resetPrice: () => initialState,
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBalance.fulfilled, (state, action) => {
-      state.balanceNative = action.payload;
+      state.price = action.payload;
     });
   },
 });
 
 export default tokenSlice.reducer;
-export const { resetCoin } = tokenSlice.actions;
+export const { resetPrice } = tokenSlice.actions;

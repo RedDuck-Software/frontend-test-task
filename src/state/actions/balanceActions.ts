@@ -1,15 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ethers } from 'ethers';
+// import {pricesAPI} from "../../api/api-prices";
 
-interface IBalanceAction {
-  account: string;
-  provider: ethers.providers.Web3Provider;
-}
-
-export const fetchBalance = createAsyncThunk<string, IBalanceAction>(
+export const fetchBalance = createAsyncThunk<string>(
   'getTokenDetails',
-  async ({ account, provider }) => {
-    const balanceBN = await provider.getBalance(account);
-    return ethers.utils.formatEther(balanceBN);
+  async () => {
+    // const price = pricesAPI.getPrice()
+    return '100';
   },
 );

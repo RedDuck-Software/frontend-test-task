@@ -1,7 +1,6 @@
 import React from 'react';
 
 import logo from '../../assets/logo.svg';
-import { ConnectButton } from '../../components/ConnectButton';
 
 export const Dashboard = () => {
   return (
@@ -11,7 +10,6 @@ export const Dashboard = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <ConnectButton />
         <a
           className="App-link"
           href="https://reactjs.org"
