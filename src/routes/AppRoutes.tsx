@@ -4,7 +4,7 @@ import { Navigate, RouteObject } from 'react-router-dom';
 import { AppRouteComponent } from './AppRouteComponent';
 import { Routes } from './config';
 
-import { Dashboard } from '../pages/Dashboard';
+import { TxBuy } from '../pages/TxBuy';
 
 export const routesConfig: RouteObject[] = [
   {
@@ -13,7 +13,7 @@ export const routesConfig: RouteObject[] = [
     children: [
       {
         path: Routes.App,
-        element: <Dashboard />,
+        element: <TxBuy />,
       },
     ],
   },

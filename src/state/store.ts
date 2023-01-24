@@ -5,10 +5,12 @@ import {
   Action,
 } from '@reduxjs/toolkit';
 
-import balanceReducer from './reducers/balanceReducer';
+import buyReducer from "./reducers/buyReducer";
+import sellReducer from "./reducers/sellReducer";
 
 const rootReducer = combineReducers({
-  balance: balanceReducer,
+  buy: buyReducer,
+  sell: sellReducer,
 });
 
 export const store = configureStore({

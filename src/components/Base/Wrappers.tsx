@@ -7,7 +7,15 @@ export const MainWrapper = styled(Flex)`
   min-height: 100vh;
   flex-direction: column;
 `;
-export const ContentWrapper = styled(Flex)`
+export const SmallContentWrapper = styled(Flex)`
+  padding: 30px 0;
+  width: 100%;
+  max-width: 488px;
+  flex-direction: column;
+  margin: 0 auto;
+  flex: 1;
+`;
+export const LargeContentWrapper = styled(Flex)`
   padding: 30px 0;
   width: 100%;
   max-width: 1132px;
