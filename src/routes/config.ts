@@ -1,4 +1,4 @@
 export const Routes = {
   App: '/',
-  Dashboard: '/dashboard',
+  Buy: '/buy',
 };
