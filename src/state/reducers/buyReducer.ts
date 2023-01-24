@@ -1,15 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  getBuyDetailsAction,
-} from '../actions/buyAction';
+import { getBuyDetailsAction } from '../actions/buyAction';
 
-export interface IBuyInitialState  {
+export interface IBuyInitialState {
   requestId: number | null;
   ibanTo: string;
   depositAmount: number;
   depositComment: string;
-  depositCurrency: string|null;
+  depositCurrency: string | null;
   outputUsdtAmount: number;
 }
 

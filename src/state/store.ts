@@ -5,8 +5,8 @@ import {
   Action,
 } from '@reduxjs/toolkit';
 
-import buyReducer from "./reducers/buyReducer";
-import sellReducer from "./reducers/sellReducer";
+import buyReducer from './reducers/buyReducer';
+import sellReducer from './reducers/sellReducer';
 
 const rootReducer = combineReducers({
   buy: buyReducer,

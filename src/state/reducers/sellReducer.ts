@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  getSellDetainsAction,
-} from '../actions/sellAction';
+import { getSellDetainsAction } from '../actions/sellAction';
 
 export interface ISellInitialState {
   depositId: number | null;

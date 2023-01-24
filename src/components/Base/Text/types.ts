@@ -9,7 +9,7 @@ export const sizes: Record<string, string> = {
   lg: '16px',
 };
 
-export type Size = typeof sizes[keyof typeof sizes];
+export type Size = (typeof sizes)[keyof typeof sizes];
 
 export interface TextProps extends SpaceProps, TypographyProps, LayoutProps {
   color?: string;

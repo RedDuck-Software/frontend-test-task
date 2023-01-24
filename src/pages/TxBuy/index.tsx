@@ -1,49 +1,41 @@
 import QRCode from 'qrcode';
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
-import {
-  BankQRCode,
-  CopyArea,
-  DataContainer,
-  CardContainer
-} from './styles';
+import { BankQRCode, CopyArea, DataContainer, CardContainer } from './styles';
 
 import { FlexWithGap } from '../../components/Base';
-import {
-  LargeText,
-  MediumText, SmallText,
-} from '../../components/Base/Text';
+import { LargeText, MediumText, SmallText } from '../../components/Base/Text';
 import {
   LargeContentWrapper,
   SmallContentWrapper,
 } from '../../components/Base/Wrappers';
-import {getBuyDetailsAction} from "../../state/actions/buyAction";
-import {useAppDispatch, useAppSelector} from "../../state/hooks";
-import {resetBuyState} from "../../state/reducers/buyReducer";
+import { getBuyDetailsAction } from '../../state/actions/buyAction';
+import { useAppDispatch, useAppSelector } from '../../state/hooks';
+import { resetBuyState } from '../../state/reducers/buyReducer';
 
 export const DataField: FC<{ title: string; value: string }> = ({
-                                                                  value,
-                                                                  title,
-                                                                }) => {
+  value,
+  title,
+}) => {
   return (
-      <FlexWithGap gap="8px" alignItems="center">
-        <SmallText fontWeight={400}>{title}</SmallText>
-        <MediumText fontWeight={600} color="#516AE4">
-          {value}
-        </MediumText>
-      </FlexWithGap>
+    <FlexWithGap gap="8px" alignItems="center">
+      <SmallText fontWeight={400}>{title}</SmallText>
+      <MediumText fontWeight={600} color="#516AE4">
+        {value}
+      </MediumText>
+    </FlexWithGap>
   );
 };
 
 export const TxBuy = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const effectRan = useRef(false);
 
   const {
     requestId,
     ibanTo,
     depositComment,
-      outputUsdtAmount,
+    outputUsdtAmount,
     depositCurrency,
   } = useAppSelector((state) => state.buy);
 
@@ -84,34 +76,31 @@ export const TxBuy = () => {
   }, [ibanTo]);
 
   return (
-      <LargeContentWrapper justifyContent="center" alignItems="center">
-            <SmallContentWrapper
-                justifyContent="center"
-                maxWidth="599px !important"
-            >
-              <CardContainer>
-                <FlexWithGap width="100%" gap="24px" alignItems="start">
-                  {qr && <BankQRCode src={qr} alt="qr-code" />}
-                  <DataContainer>
-                    <DataField title="Transaction ID:" value={`#${requestId}`} />
-                    {depositCurrency && (
-                        <DataField title="Currency:" value={depositCurrency} />
-                    )}
-                    <DataField title="Payment comment:" value={depositComment} />
-                    <DataField
-                        title="Output amount:"
-                        value={outputUsdtAmount.toString()}
-                    />
-                  </DataContainer>
-                </FlexWithGap>
-                <FlexWithGap gap="5px" flexDirection="column" mt="16px">
-                  <MediumText fontWeight={700}>IBAN:</MediumText>
-                  <CopyArea>
-                    <LargeText fontWeight={500}>{ibanTo}</LargeText>
-                  </CopyArea>
-                </FlexWithGap>
-              </CardContainer>
-            </SmallContentWrapper>
-      </LargeContentWrapper>
+    <LargeContentWrapper justifyContent="center" alignItems="center">
+      <SmallContentWrapper justifyContent="center" maxWidth="599px !important">
+        <CardContainer>
+          <FlexWithGap width="100%" gap="24px" alignItems="start">
+            {qr && <BankQRCode src={qr} alt="qr-code" />}
+            <DataContainer>
+              <DataField title="Transaction ID:" value={`#${requestId}`} />
+              {depositCurrency && (
+                <DataField title="Currency:" value={depositCurrency} />
+              )}
+              <DataField title="Payment comment:" value={depositComment} />
+              <DataField
+                title="Output amount:"
+                value={outputUsdtAmount.toString()}
+              />
+            </DataContainer>
+          </FlexWithGap>
+          <FlexWithGap gap="5px" flexDirection="column" mt="16px">
+            <MediumText fontWeight={700}>IBAN:</MediumText>
+            <CopyArea>
+              <LargeText fontWeight={500}>{ibanTo}</LargeText>
+            </CopyArea>
+          </FlexWithGap>
+        </CardContainer>
+      </SmallContentWrapper>
+    </LargeContentWrapper>
   );
 };

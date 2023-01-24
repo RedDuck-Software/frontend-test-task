@@ -1,7 +1,7 @@
 // import { axiosInstance } from './instance';
 
-import {IBuyInitialState} from "../state/reducers/buyReducer";
-import {ISellInitialState} from "../state/reducers/sellReducer";
+import { IBuyInitialState } from '../state/reducers/buyReducer';
+import { ISellInitialState } from '../state/reducers/sellReducer';
 
 export const API = {
   async getBuyDetails(): Promise<IBuyInitialState> {
@@ -19,10 +19,10 @@ export const API = {
             depositComment: 'some comment',
             depositCurrency: 'usd',
             outputUsdtAmount: 900,
-          }
+          };
           resolve(data);
         } else {
-          throw new Error('500 Internal error')
+          throw new Error('500 Internal error');
         }
       }, 1000);
     });
@@ -42,7 +42,7 @@ export const API = {
             depositAmount: 1000,
             outputCurrency: 'usdt',
             outputAmount: 900,
-          }
+          };
           resolve(data);
         } else {
           reject('500 error');
